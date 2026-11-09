@@ -1,0 +1,11 @@
+{
+  "name": "khushiii-shomayyy-love-wonderland",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pink Teddy Bear Love Page for Khushiii (My Latu) by Shomayyy",
+  "scripts": {
+    "start": "node server.js",
+    "sync": "node sync-photos.js"
+  }
+}

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khushiii (My Latu) × Shomayyy 💖 Teddy Wonderland</title>
+  
+  <!-- Google Fonts: Kawaii, Handwritten & Romantic Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@600;700&family=Quicksand:wght@500;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Twinkling Fairy Lights String Across the Top -->
+  <div class="fairy-lights-string">
+    <div class="fairy-bulb bulb-pink"></div>
+    <div class="fairy-bulb bulb-gold"></div>
+    <div class="fairy-bulb bulb-white"></div>
+    <div class="fairy-bulb bulb-rose"></div>
+    <div class="fairy-bulb bulb-pink"></div>
+    <div class="fairy-bulb bulb-gold"></div>
+    <div class="fairy-bulb bulb-white"></div>
+    <div class="fairy-bulb bulb-rose"></div>
+    <div class="fairy-bulb bulb-pink"></div>
+    <div class="fairy-bulb bulb-gold"></div>
+    <div class="fairy-bulb bulb-white"></div>
+    <div class="fairy-bulb bulb-rose"></div>
+  </div>
+
+  <!-- Floating Sparkle Cursor Trail Canvas -->
+  <canvas id="cursor-canvas"></canvas>
+
+  <!-- Floating Ambient Hearts & Petals Layer -->
+  <div id="ambient-particles"></div>
+
+  <!-- Background Audio Element -->
+  <audio id="bg-audio" loop preload="auto"></audio>
+
+  <!-- =========================================================================
+       🔒 1. ENTRANCE SCREEN WITH SPECIAL SORRY NOTE FOR KHUSHIII
+       ========================================================================= -->
+  <div id="lock-screen">
+    <div class="lock-card sorry-note-card">
+      <span class="lock-badge">🥺 A Special Sorry Note From Shomayyy To His Latu</span>
+      
+      <!-- Animated Pleading Teddy (Holding Ears - Kaan Pakad Ke Sorry) -->
+      <div id="lock-teddy-wrap" class="lock-teddy-container sorry-teddy-wrap"></div>
+
+      <!-- Photo Peek of Khushiii -->
+      <div class="lock-photo-peek" style="width: 78px; height: 78px; border-radius: 50%; overflow: hidden; border: 3px solid #FF477E; margin: -20px auto 1rem; box-shadow: 0 4px 18px rgba(255, 71, 126, 0.4); position: relative; z-index: 5;">
+        <img src="photos/1d476b7c-ff2b-4e5f-84ab-7799ae53bf1e.jpg" alt="My Latu Khushiii" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+
+      <!-- THE SORRY NOTE -->
+      <div class="sorry-quote-banner">
+        <span class="sorry-quote-icon">💌</span>
+        <h1 class="sorry-main-quote">
+          “Hey bby sorry yaar maaf krde baby”
+        </h1>
+      </div>
+
+      <p class="sorry-subtext">
+        Pakka promise Shomayyy won't make his Latu upset again! Please smile now baby? Your angry pout is cute, but your smile is my whole world... 🥺🧸💖
+      </p>
+      
+      <!-- Interactive Buttons -->
+      <div class="sorry-actions-wrap">
+        <button id="unlock-btn" class="lock-ribbon-btn maaf-btn">
+          <span>Maaf Kiya Shomayyy Ko! Untie Ribbon 🎀</span>
+        </button>
+        <button id="sorry-pout-btn" class="sorry-nakhre-btn">
+          <span>Hmph, aur manao! 😤🙈</span>
+        </button>
+      </div>
+
+      <div id="sorry-nakhre-msg" class="lock-hint-text">
+        ✨ Tap "Maaf Kiya" to unlock our pink wonderland & start our song ✨
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       🎵 2. FLOATING PINK MUSIC PLAYER (Cassette / Vinyl Style)
+       ========================================================================= -->
+  <div id="floating-music-player">
+    <button id="music-toggle-btn" class="player-disk-btn" title="Play / Pause Music">
+      ▶
+    </button>
+    <div class="player-info">
+      <div class="player-song-title">Die With A Smile 💖</div>
+      <div class="player-artist">Lady Gaga & Bruno Mars</div>
+    </div>
+    <div id="music-bars" class="player-bars">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       🧸 3. HERO SECTION (Welcome to Our Little Pink World)
+       ========================================================================= -->
+  <header class="section-wrapper hero-section">
+    <div class="container">
+      <div class="hero-names-badge">
+        <span>🧸 Shomayyy</span>
+        <span>❤️</span>
+        <span>Khushiii (My Latu) 👑</span>
+      </div>
+
+      <!-- Main Visual Layout: Cuddling Teddies + Spotlight Polaroid -->
+      <div class="hero-main-layout">
+        <!-- Illustrated Cuddling Teddies on Pastel Cloud -->
+        <div id="hero-teddy-wrap" class="hero-teddy-cuddle-wrap"></div>
+
+        <!-- Spotlight Polaroid Frame (Directly Visible Photo!) -->
+        <div id="hero-spotlight-card" class="hero-spotlight-polaroid">
+          <div class="hero-washi-tape">✨ Our First Meet • 13:42 ✨</div>
+          <div class="hero-spotlight-img-wrap">
+            <img id="hero-spotlight-img" src="photos/1d476b7c-ff2b-4e5f-84ab-7799ae53bf1e.jpg" alt="Spotlight Photo of Khushiii & Shomayyy">
+          </div>
+          <h3 id="hero-spotlight-title" class="hero-spotlight-caption">My Prettiest Latu 🌸</h3>
+          <div id="hero-spotlight-subtitle" class="hero-spotlight-date">28 Oct 2024 • 13:42</div>
+        </div>
+      </div>
+
+      <h1 class="hero-headline">
+        For My <span class="highlight-latu">Khushiii (My Latu)</span> 🌸
+      </h1>
+
+      <p class="hero-tagline">
+        Your eyes, your smile, your pretty lips, your cute anger, and the way you never give up on me—you are my favorite blessing in this entire universe.
+      </p>
+
+      <div class="hero-song-quote">
+        “If the world was ending, I'd wanna be next to you...” 🎶💖
+      </div>
+
+      <div class="hero-actions">
+        <a href="#clocks-section" class="btn-primary-pink">Our Relationship Clocks 🕰️</a>
+        <a href="#scrapbook-section" class="btn-primary-pink" style="background: linear-gradient(135deg, #FF759E 0%, #FF2A6D 100%);">View Our Photos 📸</a>
+        <a href="#letter-section" class="btn-secondary-pink">Read My Love Letter 💌</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       🕰️ 4. RELATIONSHIP CLOCKS SECTION (Live Millisecond & Second Accuracy)
+       ========================================================================= -->
+  <section id="clocks-section" class="section-wrapper">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Every Second With My Latu 🕰️</span>
+        <h2 class="section-title">Our Time Together</h2>
+        <p class="section-subtitle">Ticking away every second of love, laughs, bear hugs, and forever memories.</p>
+      </div>
+
+      <div class="clocks-card">
+        <!-- Clock Selector Tabs -->
+        <div class="clock-tabs">
+          <button class="clock-tab-btn active" data-clock="inRelationship">
+            💍 In Relationship (7 Aug 2024)
+          </button>
+          <button class="clock-tab-btn" data-clock="firstMeet">
+            🤗 First Meet (28 Oct 2024 • 13:42)
+          </button>
+          <button class="clock-tab-btn" data-clock="knewEachOther">
+            ✨ Knew Each Other (20 Nov 2023)
+          </button>
+        </div>
+
+        <div class="clock-active-meta">
+          <h3 id="clock-active-label" class="clock-active-label">Since We Came Into Relationship</h3>
+          <span id="clock-active-date" class="clock-active-date">7 August 2024</span>
+        </div>
+
+        <!-- Live Digits -->
+        <div class="clock-digits-grid">
+          <div class="clock-digit-box">
+            <span id="clock-days" class="clock-number">0</span>
+            <span class="clock-unit">Days</span>
+          </div>
+          <div class="clock-digit-box">
+            <span id="clock-hours" class="clock-number">00</span>
+            <span class="clock-unit">Hours</span>
+          </div>
+          <div class="clock-digit-box">
+            <span id="clock-minutes" class="clock-number">00</span>
+            <span class="clock-unit">Minutes</span>
+          </div>
+          <div class="clock-digit-box">
+            <span id="clock-seconds" class="clock-number">00</span>
+            <span class="clock-unit">Seconds</span>
+          </div>
+        </div>
+
+        <div class="clock-love-pulse">
+          <span class="heart-pulsing-icon">💖</span>
+          <span>And falling in love with my Latu more and more every single day</span>
+          <span class="heart-pulsing-icon">💖</span>
+        </div>
+
+        <!-- Interactive Bear Hug Meter -->
+        <div class="hug-meter-card">
+          <button id="send-hug-btn" class="hug-btn">
+            Send Shomayyy A Bear Hug 🤗🧸
+          </button>
+          <div id="hug-counter-display" class="hug-count-text">
+            You gave Shomayyy <span id="hug-count-number" style="color: #FF2A6D; font-size: 1.3rem;">0</span> hugs today! 💕
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       📖 5. "OUR STORY" TIMELINE
+       ========================================================================= -->
+  <section class="section-wrapper">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Chapters of Us 🌸</span>
+        <h2 class="section-title">Our Storybook Timeline</h2>
+        <p class="section-subtitle">From the moment we met to every unforgettable milestone along our pink path.</p>
+      </div>
+
+      <div class="timeline-container" id="timeline-items-container">
+        <!-- Populated dynamically by app.js with real photos -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       💖 6. "7 THINGS SHOMAYYY LOVES ABOUT KHUSHIII"
+       ========================================================================= -->
+  <section class="section-wrapper">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Why She's Irreplaceable 👑</span>
+        <h2 class="section-title">What I Love About My Latu</h2>
+        <p class="section-subtitle">Seven things about Khushiii that make Shomayyy fall for her over and over again.</p>
+      </div>
+
+      <div class="traits-grid" id="traits-grid-container">
+        <!-- Populated dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       📸 7. POLAROID WALL & SCRAPBOOK (All 14 Photos Displayed!)
+       ========================================================================= -->
+  <section id="scrapbook-section" class="section-wrapper">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Teddy Scrapbook 🧸</span>
+        <h2 class="section-title">Our Polaroid Wall</h2>
+        <p class="section-subtitle">Hover or tap any polaroid to flip it and read Shomayyy's secret note on the back!</p>
+      </div>
+
+      <!-- Gallery Filter Tabs -->
+      <div class="gallery-filter-tabs">
+        <button class="gallery-tab-btn active" data-filter="all">All of My Latu ✨ (14 Photos)</button>
+        <button class="gallery-tab-btn" data-filter="her-solo">Her Eyes, Smile & Face 🌸</button>
+        <button class="gallery-tab-btn" data-filter="together">Shomayyy & Latu 💑</button>
+        <button class="gallery-tab-btn" data-filter="goofy">Cute Anger & Goofy 😤🎀</button>
+      </div>
+
+      <!-- Polaroid Cards Grid (Real Photos) -->
+      <div class="polaroid-grid" id="polaroid-grid-container">
+        <!-- Populated dynamically by app.js with all 14 photos -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       🫙 8. "REASONS I LOVE YOU" PINK HEART JAR
+       ========================================================================= -->
+  <section class="section-wrapper">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Teddy's Heart Vault 🍓</span>
+        <h2 class="section-title">The Pink Love Jar</h2>
+        <p class="section-subtitle">Tap the jar or the button to pull out a sweet love note from Shomayyy!</p>
+      </div>
+
+      <div class="jar-section-card">
+        <div id="love-jar-wrap" class="jar-interactive-wrap" title="Tap to draw a love note!">
+          <svg class="jar-svg" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="jarGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+                <stop offset="50%" stop-color="#FFE0ED" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#FFB3CE" stop-opacity="0.6"/>
+              </linearGradient>
+            </defs>
+            <rect x="55" y="15" width="90" height="22" rx="7" fill="#E09F67" stroke="#BA7236" stroke-width="2"/>
+            <rect x="45" y="37" width="110" height="12" rx="4" fill="#FFCCD9" stroke="#E65582" stroke-width="2"/>
+            <rect x="42" y="44" width="116" height="8" fill="#FF1E62"/>
+            <path d="M100 48 L80 68 M100 48 L120 68" stroke="#FF1E62" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="100" cy="48" r="6" fill="#FFD166"/>
+            <rect x="25" y="52" width="150" height="195" rx="36" fill="url(#jarGlass)" stroke="#FF85AB" stroke-width="3"/>
+            <g class="jar-hearts-inside">
+              <path d="M70 120 C70 110 56 110 56 120 C56 130 70 140 70 140 C70 140 84 130 84 120 C84 110 70 110 70 120 Z" fill="#FF477E"/>
+              <path d="M125 150 C125 142 114 142 114 150 C114 158 125 166 125 166 C125 166 136 158 136 150 C136 142 125 142 125 150 Z" fill="#FF759E"/>
+              <path d="M85 185 C85 175 72 175 72 185 C72 195 85 204 85 204 C85 204 98 195 98 185 C98 175 85 175 85 185 Z" fill="#FF2A6D"/>
+              <path d="M135 105 C135 98 125 98 125 105 C125 112 135 120 135 120 C135 120 145 112 145 105 C145 98 135 98 135 105 Z" fill="#FFA8C2"/>
+            </g>
+            <rect x="48" y="115" width="104" height="42" rx="10" fill="#FFF5F8" stroke="#FF85AB" stroke-width="1.8"/>
+            <text x="100" y="134" text-anchor="middle" fill="#BD1A4F" font-family="'Quicksand', sans-serif" font-weight="800" font-size="11.5">LATU'S JAR 💖</text>
+            <text x="100" y="148" text-anchor="middle" fill="#854D60" font-family="'Quicksand', sans-serif" font-weight="700" font-size="9.5">100% Pure Love</text>
+            <path d="M42 75 Q42 220 52 230" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.65"/>
+          </svg>
+        </div>
+
+        <!-- Unfolded Note Paper -->
+        <div class="jar-unfolded-note-container">
+          <div class="jar-note-paper">
+            <div id="jar-note-text" class="jar-note-text">
+              Loading a sweet reason for you, my Latu...
+            </div>
+            <div id="jar-note-meta" class="jar-note-meta">
+              Reason #1 • From Shomayyy with love 💕
+            </div>
+          </div>
+        </div>
+
+        <button id="jar-draw-btn" class="jar-draw-btn">
+          Draw Another Love Reason 🧸✨
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       🧸 9. PLAYFUL "ASK THE TEDDY" QUESTION GAME
+       ========================================================================= -->
+  <section class="section-wrapper">
+    <div class="container">
+      <div class="question-game-card">
+        <div id="question-teddy-wrap" class="question-teddy-mood"></div>
+        <h2 class="game-title">Teddy Needs An Official Answer...</h2>
+        <p class="game-question-text">
+          My Latu, even when you get angry at me with your cute little pout, will you stay Shomayyy's forever girl and never give up on us? 🧸💖
+        </p>
+
+        <div class="game-buttons-area" id="game-buttons-area">
+          <button id="btn-game-yes" class="btn-game-yes">
+            YES! Forever & Always! 💖
+          </button>
+          <button id="btn-game-no" class="btn-game-no">
+            Hmph, I'm angry! 😤🙈
+          </button>
+        </div>
+
+        <div id="game-toast-message" class="game-toast-message"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       💌 10. SEALED WAX LOVE LETTER FINALE (With Letter Image!)
+       ========================================================================= -->
+  <section id="letter-section" class="section-wrapper">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">From Shomayyy's Heart 💌</span>
+        <h2 class="section-title">The Sealed Love Letter</h2>
+        <p class="section-subtitle">Tap the golden wax heart seal below to unroll my letter to you.</p>
+      </div>
+
+      <div class="letter-section-card">
+        <!-- Closed Envelope with Wax Seal -->
+        <div id="envelope-closed-wrap" class="envelope-closed-wrap">
+          <div class="wax-seal-btn">💖</div>
+          <h3 class="timeline-card-title">Confidential: For Khushiii (My Latu)'s Eyes Only</h3>
+          <p class="timeline-card-desc">Hand-written with love, warmth, and forever promises.</p>
+          <div style="margin-top: 1.2rem; color: var(--pink-600); font-weight: 800; font-size: 1rem;">
+            ✨ Tap here to break the wax seal & open ✨
+          </div>
+        </div>
+
+        <!-- Unfolded Romantic Parchment -->
+        <div id="parchment-opened-wrap" class="parchment-opened-wrap">
+          <span class="parchment-tag">💌 From Shomayyy • To Khushiii (My Latu)</span>
+          <h2 class="parchment-salutation">My Dearest Khushiii (My Latu),</h2>
+          
+          <div id="parchment-body-text" class="parchment-body">
+            <!-- Loaded dynamically from love-letter/ folder with Image.jpeg! -->
+          </div>
+
+          <div class="parchment-signoff">
+            <div style="font-family: var(--font-hand); font-size: 1.6rem; color: #5A2A3C; font-weight: 700;">Forever & Always Yours,</div>
+            <div class="parchment-signature">Shomayyy 🧸💖</div>
+          </div>
+
+          <div class="parchment-ps">
+            P.S. You owe me one giant bear hug right after reading this! 🌸
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       🎉 11. CELEBRATION MODAL
+       ========================================================================= -->
+  <div id="celebration-modal" class="modal-overlay">
+    <div class="celebration-modal-card">
+      <div id="modal-celebrate-teddy" class="modal-teddy-celebrate"></div>
+      <h2 class="modal-title">YAYYY!! Best Answer Ever!! 🎉🧸💖</h2>
+      <p class="modal-message">
+        No take-backs, my Latu! You are officially locked in for infinite forehead kisses, late-night talks, endless snacks, and a lifetime of Shomayyy's warm bear hugs!
+      </p>
+      <button id="modal-close-btn" class="btn-modal-close">
+        I Love You Shomayyy! 💕
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       🖼️ 12. PHOTO LIGHTBOX MODAL (Click any photo to zoom in high res!)
+       ========================================================================= -->
+  <div id="photo-lightbox-modal">
+    <div class="lightbox-card">
+      <button id="lightbox-close-btn" class="lightbox-close-btn">✕</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="High Resolution View">
+      </div>
+      <div class="lightbox-caption-area">
+        <h3 id="lightbox-title" class="lightbox-title"></h3>
+        <p id="lightbox-secret" class="lightbox-secret"></p>
+        <button id="lightbox-heart-btn" class="lightbox-action-btn">
+          <span>Send A Kiss To Shomayyy 💋💖</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Built with all my love for Khushiii (My Latu) • By Shomayyy 🧸💖</p>
+      <p style="font-size: 0.88rem; margin-top: 0.5rem; opacity: 0.85;">
+        20 Nov 2023 • 7 Aug 2024 • 28 Oct 2024 at 13:42 • To Forever & Infinity
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts in dependency order -->
+  <script src="folder-manifest.js"></script>
+  <script src="love-config.js"></script>
+  <script src="teddy-art.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
